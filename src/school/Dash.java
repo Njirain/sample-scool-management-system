@@ -17,20 +17,6 @@ public class Dash extends Admin {
 	private JFrame dashboard;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
 	 * @wbp.parser.entryPoint
 	 */
@@ -47,7 +33,7 @@ public class Dash extends Admin {
 		dashboard.getContentPane().setForeground(Color.WHITE);
 		dashboard.setFont(new Font("MathJax_Caligraphic", Font.BOLD | Font.ITALIC, 24));
 		dashboard.setTitle("DASHBOARD");
-		dashboard.setBounds(100, 100, 450, 300);
+		dashboard.setBounds(100, 100, 668, 412);
 		dashboard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		dashboard.getContentPane().setLayout(null);
 		
@@ -59,7 +45,7 @@ public class Dash extends Admin {
 		
 		JButton btnAddStudent = new JButton("Add Student");
 		btnAddStudent.setBackground(Color.GREEN);
-		btnAddStudent.setBounds(6, 18, 142, 25);
+		btnAddStudent.setBounds(6, 7, 208, 44);
 	btnAddStudent.addActionListener(object->{
 		dashboard.setVisible(false);
 		add_student add = new add_student();
@@ -70,7 +56,7 @@ public class Dash extends Admin {
 		
 		JButton btnClearStudent = new JButton("Clear Student");
 		btnClearStudent.setBackground(Color.GREEN);
-		btnClearStudent.setBounds(6, 47, 146, 25);
+		btnClearStudent.setBounds(6, 63, 208, 41);
 	btnClearStudent.addActionListener(object->{
 		dashboard.setVisible(false);
 		JOptionPane.showInputDialog(null, "Feed in Student ID");
@@ -81,7 +67,7 @@ public class Dash extends Admin {
 		
 		JButton btnUpdateRecord = new JButton("Update record");
 		btnUpdateRecord.setBackground(Color.GREEN);
-		btnUpdateRecord.setBounds(6, 80, 142, 25);
+		btnUpdateRecord.setBounds(6, 112, 208, 41);
 	btnUpdateRecord.addActionListener(object->{
 		dashboard.setVisible(false);
 		
@@ -92,7 +78,7 @@ public class Dash extends Admin {
 		
 		JButton btnAddAdmin = new JButton("Add Admin");
 		btnAddAdmin.setBackground(Color.GREEN);
-		btnAddAdmin.setBounds(2, 191, 146, 25);
+		btnAddAdmin.setBounds(6, 270, 208, 44);
 	btnAddAdmin.addActionListener(object->{
 		dashboard.setVisible(false);
 		Add_admin admin = new Add_admin();
@@ -102,7 +88,7 @@ public class Dash extends Admin {
 		
 		JButton btnRemoveAdmin = new JButton("Remove Admin");
 		btnRemoveAdmin.setBackground(Color.GREEN);
-		btnRemoveAdmin.setBounds(6, 224, 157, 25);
+		btnRemoveAdmin.setBounds(6, 326, 208, 48);
 	btnRemoveAdmin.addActionListener(object->{
 		dashboard.setVisible(false);
 		JOptionPane.showInputDialog(null,"ADMIN's Name:");
@@ -112,25 +98,21 @@ public class Dash extends Admin {
 		
 		JButton btnShowStudents = new JButton("Show Students");
 		btnShowStudents.addActionListener(object->{
+			dashboard.setVisible(false);
+			show_student sht = new show_student();
 			
-			
-			
-			dashboard.setVisible(false);	
-			Dash window = new Dash();
 		});
 		btnShowStudents.setBackground(Color.GREEN);
-		btnShowStudents.setBounds(6, 117, 142, 25);
+		btnShowStudents.setBounds(6, 158, 208, 44);
 		dashboard.getContentPane().add(btnShowStudents);
 		
 		JButton btnShowAdmins = new JButton("Show Admins");
 		btnShowAdmins.setBackground(Color.GREEN);
-		btnShowAdmins.setBounds(2, 154, 146, 25);
+		btnShowAdmins.setBounds(6, 214, 208, 44);
 	btnShowAdmins.addActionListener(object->{
-		
-		
-			
 		dashboard.setVisible(false);
-		Dash window = new Dash();
+		Show_Admins showAdmin = new Show_Admins();
+		
 		});
 		dashboard.getContentPane().add(btnShowAdmins);
 		
@@ -141,12 +123,12 @@ public class Dash extends Admin {
 		});
 		btnLogout.setForeground(Color.WHITE);
 		btnLogout.setBackground(Color.RED);
-		btnLogout.setBounds(272, 232, 146, 34);
+		btnLogout.setBounds(460, 7, 190, 62);
 		dashboard.getContentPane().add(btnLogout);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
 		lblNewLabel_1.setIcon(new ImageIcon("/home/franc/icons/images.png"));
-		lblNewLabel_1.setBounds(190, 69, 248, 151);
+		lblNewLabel_1.setBounds(421, 87, 229, 287);
 		dashboard.getContentPane().add(lblNewLabel_1);
 		dashboard.setVisible(true);
 	}

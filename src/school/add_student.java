@@ -9,6 +9,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import java.awt.Font;
 
 public class add_student{
 
@@ -53,94 +55,94 @@ public class add_student{
 		frmAddStudent = new JFrame();
 		frmAddStudent.getContentPane().setBackground(Color.ORANGE);
 		frmAddStudent.setTitle("ADD STUDENT");
-		frmAddStudent.setBounds(100, 100, 450, 300);
+		frmAddStudent.setBounds(100, 100, 802, 466);
 		frmAddStudent.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAddStudent.getContentPane().setLayout(null);
 		
 		JLabel lblFirstname = new JLabel("FirstName");
-		lblFirstname.setBounds(12, 19, 94, 15);
+		lblFirstname.setBounds(425, 19, 94, 15);
 		frmAddStudent.getContentPane().add(lblFirstname);
 		
 		JLabel lblMiddlename = new JLabel("MiddleName");
-		lblMiddlename.setBounds(12, 52, 94, 15);
+		lblMiddlename.setBounds(425, 67, 94, 15);
 		frmAddStudent.getContentPane().add(lblMiddlename);
 		
 		JLabel lblSurname = new JLabel("SurName");
-		lblSurname.setBounds(12, 79, 94, 21);
+		lblSurname.setBounds(455, 100, 94, 21);
 		frmAddStudent.getContentPane().add(lblSurname);
 		
 		JLabel lblPhone = new JLabel("Phone");
-		lblPhone.setBounds(12, 129, 70, 14);
+		lblPhone.setBounds(478, 139, 70, 14);
 		frmAddStudent.getContentPane().add(lblPhone);
 		
 		JLabel lblNationalId = new JLabel(" ID");
-		lblNationalId.setBounds(12, 164, 94, 15);
+		lblNationalId.setBounds(481, 177, 94, 15);
 		frmAddStudent.getContentPane().add(lblNationalId);
 		
 		JLabel lblCity = new JLabel("City");
-		lblCity.setBounds(12, 205, 70, 15);
+		lblCity.setBounds(479, 218, 70, 15);
 		frmAddStudent.getContentPane().add(lblCity);
 		
 		JLabel lblCourse = new JLabel("Course");
-		lblCourse.setBounds(12, 244, 70, 15);
+		lblCourse.setBounds(455, 273, 70, 15);
 		frmAddStudent.getContentPane().add(lblCourse);
 		
 		textField = new JTextField();
-		textField.setBounds(100, 12, 185, 29);
+		textField.setBounds(526, 12, 237, 29);
 		frmAddStudent.getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(100, 45, 183, 30);
+		textField_1.setBounds(526, 52, 237, 30);
 		frmAddStudent.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(100, 82, 185, 33);
+		textField_2.setBounds(526, 94, 237, 33);
 		frmAddStudent.getContentPane().add(textField_2);
 		textField_2.setColumns(10);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(100, 121, 185, 32);
+		textField_3.setBounds(526, 133, 237, 32);
 		frmAddStudent.getContentPane().add(textField_3);
 		textField_3.setColumns(10);
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(100, 157, 185, 29);
+		textField_4.setBounds(526, 177, 237, 29);
 		frmAddStudent.getContentPane().add(textField_4);
 		textField_4.setColumns(10);
 		
 		textField_5 = new JTextField();
-		textField_5.setBounds(100, 197, 185, 31);
+		textField_5.setBounds(526, 218, 237, 31);
 		frmAddStudent.getContentPane().add(textField_5);
 		textField_5.setColumns(10);
 		
 		textField_6 = new JTextField();
-		textField_6.setBounds(100, 238, 185, 28);
+		textField_6.setBounds(526, 267, 237, 28);
 		frmAddStudent.getContentPane().add(textField_6);
 		textField_6.setColumns(10);
 		
 		JButton addstudent = new JButton("Add");
 		addstudent.setForeground(Color.WHITE);
 		addstudent.setBackground(Color.MAGENTA);
-		addstudent.setBounds(307, 165, 131, 48);
+		addstudent.setBounds(280, 357, 160, 66);
 		frmAddStudent.getContentPane().add(addstudent);
 		
 		JLabel lblPgurdian = new JLabel("P/Gurdian");
-		lblPgurdian.setBounds(354, 19, 70, 15);
+		lblPgurdian.setBounds(455, 300, 70, 34);
 		frmAddStudent.getContentPane().add(lblPgurdian);
 		
 		textField_7 = new JTextField();
-		textField_7.setBounds(297, 46, 141, 29);
+		textField_7.setBounds(526, 307, 237, 29);
 		frmAddStudent.getContentPane().add(textField_7);
 		textField_7.setColumns(10);
 		
 		JLabel lblPmobile = new JLabel("P.mobile");
-		lblPmobile.setBounds(354, 91, 70, 15);
+		lblPmobile.setBounds(455, 357, 70, 15);
 		frmAddStudent.getContentPane().add(lblPmobile);
 		
 		textField_8 = new JTextField();
-		textField_8.setBounds(297, 119, 141, 34);
+		textField_8.setBounds(526, 348, 237, 34);
 		frmAddStudent.getContentPane().add(textField_8);
 		textField_8.setColumns(10);
 		
@@ -153,8 +155,18 @@ public class add_student{
 		});
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setBackground(Color.RED);
-		btnNewButton.setBounds(297, 225, 147, 45);
+		btnNewButton.setBounds(59, 357, 165, 65);
 		frmAddStudent.getContentPane().add(btnNewButton);
+		
+		JLabel lblAdmission = new JLabel("ADMISSION OF NEW STUDENT");
+		lblAdmission.setForeground(Color.BLUE);
+		lblAdmission.setFont(new Font("MathJax_Typewriter", Font.BOLD | Font.ITALIC, 24));
+		lblAdmission.setBounds(12, 19, 349, 36);
+		frmAddStudent.getContentPane().add(lblAdmission);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("/home/franc/icons/index.png"));
+		lblNewLabel.setBounds(129, 67, 203, 250);
+		frmAddStudent.getContentPane().add(lblNewLabel);
 	}
-
 }

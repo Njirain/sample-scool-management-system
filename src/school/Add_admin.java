@@ -50,7 +50,7 @@ public class Add_admin {
 	private void initialize() {
 		frmAddAdmin = new JFrame();
 		frmAddAdmin.setTitle("ADD ADMIN");
-		frmAddAdmin.setBounds(100, 100, 450, 300);
+		frmAddAdmin.setBounds(100, 100, 570, 374);
 		frmAddAdmin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAddAdmin.getContentPane().setLayout(null);
 		
@@ -79,12 +79,12 @@ public class Add_admin {
 			}
 		});
 		btnAdd.setBackground(Color.ORANGE);
-		btnAdd.setBounds(187, 215, 117, 51);
+		btnAdd.setBounds(199, 269, 117, 51);
 		frmAddAdmin.getContentPane().add(btnAdd);
 		
 		JButton btnExit = new JButton("EXIT");
 		btnExit.setBackground(Color.ORANGE);
-		btnExit.setBounds(316, 215, 117, 51);
+		btnExit.setBounds(374, 269, 117, 51);
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Dash ds = new Dash();
@@ -93,22 +93,22 @@ public class Add_admin {
 		frmAddAdmin.getContentPane().add(btnExit);
 		
 		textField = new JTextField();
-		textField.setBounds(97, 77, 159, 30);
+		textField.setBounds(97, 67, 225, 45);
 		frmAddAdmin.getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(97, 124, 159, 30);
+		textField_1.setBounds(97, 124, 225, 46);
 		frmAddAdmin.getContentPane().add(textField_1);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(97, 176, 159, 27);
+		passwordField.setBounds(97, 176, 219, 51);
 		frmAddAdmin.getContentPane().add(passwordField);
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon("/home/franc/icons/Annotation 2021-09-30 095924.png"));
-		lblNewLabel.setBounds(266, 0, 172, 214);
+		lblNewLabel.setBounds(353, 31, 172, 214);
 		frmAddAdmin.getContentPane().add(lblNewLabel);
 	}
 }
