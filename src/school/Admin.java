@@ -7,18 +7,31 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.border.TitledBorder;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
+import javax.swing.JPasswordField;
 
 public class Admin{
-
+   
 	protected static JFrame frameAdmin;
-	private JTextField adminName;
-	private JTextField textField;
+	public JTextField adminName;
+	private JPasswordField passwordField;
+	Connection conn;
+	PreparedStatement ps;
+	 public String name;
+	 private String adminname;
+
+
 
 	/**
 	 * Launch the application.
@@ -42,6 +55,50 @@ public class Admin{
 	public Admin() {
 		initialize();
 	}
+
+	
+	protected void Get_Connection() throws SQLException {
+		String driver="com.mysql.cj.jdbc.Driver";
+		String url= "jdbc:mysql://localhost:3306/SchoolSystem";
+		//register my driver
+		try {
+			Class.forName(driver);
+			
+			//create connection
+			
+			conn = DriverManager.getConnection(url, "root", "");
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	//query the database
+	private void Check() throws SQLException {
+		String sql = "select username,password from Admins where username=? and password=?";
+		name = adminName.getText();
+		String pass = passwordField.getText();
+		ps=conn.prepareStatement(sql);
+		ps.setString(1, name);
+		ps.setString(2, pass);
+		ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+			      String welcome = adminName.getText();
+		             Dash dash= new Dash();
+		             dash.lblNewLabel.setText("WELCOME "+welcome.toUpperCase());
+		             dash.dashboard.setVisible(true);
+			conn.close();
+		}
+			else {
+				JOptionPane.showMessageDialog(null, "username and password mismatch!!");
+				adminName.setText("");
+				passwordField.setText("");
+				show();
+				
+			}
+	}
+	
 
 	/**
 	 * Initialize the contents of the frame.
@@ -75,15 +132,10 @@ public class Admin{
 		panel.add(adminName);
 		adminName.setColumns(10);
 		
-		JLabel lblEmail = new JLabel("EMAIL: ");
+		JLabel lblEmail = new JLabel("PASSWORD");
 		lblEmail.setForeground(Color.BLACK);
-		lblEmail.setBounds(70, 73, 70, 15);
+		lblEmail.setBounds(70, 70, 97, 15);
 		panel.add(lblEmail);
-		
-		textField = new JTextField();
-		textField.setBounds(165, 63, 231, 36);
-		panel.add(textField);
-		textField.setColumns(10);
 		
 		JButton btnLogin = new JButton("LOGIN");
 		btnLogin.setFocusPainted(false);
@@ -92,8 +144,12 @@ public class Admin{
 			try {
 				thread.sleep(1000);
 				frameAdmin.setVisible(false);
-				Dash window = new Dash();
+				Get_Connection();
+				Check();
 			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -115,6 +171,21 @@ public class Admin{
 		btnCancel.setBounds(329, 102, 97, 44);
 		panel.add(btnCancel);
 		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(165, 60, 231, 36);
+		passwordField.addActionListener(object->{
+			frameAdmin.setVisible(false);
+			try {
+				Get_Connection();
+				Check();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		});
+		panel.add(passwordField);
+		
 		JLabel labelAdmin = new JLabel(" ADMIN:");
 		labelAdmin.setForeground(Color.BLUE);
 		labelAdmin.setFont(new Font("FreeSans", Font.BOLD | Font.ITALIC, 25));
@@ -127,6 +198,12 @@ public class Admin{
 		lblNewLabel.setBounds(236, 0, 202, 130);
 		frameAdmin.getContentPane().add(lblNewLabel);
 	}
+	public String SayName(String givenname) {
+		return givenname;
+		
+	}
+
+
 	private static void show() {
 		try {
 			try {

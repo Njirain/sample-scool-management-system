@@ -10,12 +10,18 @@ import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
-public class show_student {
+public class show_student extends Admin{
 
 	private JFrame frmStudents;
-	private JTextField textField;
+	private JTextField getreg;
+	 protected JTextArea result;
+	 private JLabel lblNewLabel;
 
 	/**
 	 * Create the application.
@@ -36,29 +42,75 @@ public class show_student {
 		
 		JLabel lblEnterStudentsReg = new JLabel("ENTER STUDENT'S REG NUMBER");
 		lblEnterStudentsReg.setFont(new Font("Liberation Sans", Font.BOLD | Font.ITALIC, 21));
-		lblEnterStudentsReg.setBounds(12, 25, 372, 50);
+		lblEnterStudentsReg.setBounds(12, 27, 350, 50);
 		frmStudents.getContentPane().add(lblEnterStudentsReg);
 		
-		textField = new JTextField();
-		textField.setBounds(12, 89, 348, 63);
-		frmStudents.getContentPane().add(textField);
-		textField.setColumns(10);
+		getreg = new JTextField();
+		getreg.setBounds(31, 264, 189, 50);
+		frmStudents.getContentPane().add(getreg);
+		getreg.addActionListener(object->{
+			try {
+				ShowResults();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		});
+		getreg.setColumns(10);
 		
 		JButton btnNewButton = new JButton("SEARCH");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				frmStudents.setVisible(false);
-				Dash dash=new Dash();
+			try {
+				
+				ShowResults();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			}
 		});
 		btnNewButton.setForeground(new Color(230, 230, 250));
 		btnNewButton.setBackground(new Color(0, 128, 0));
-		btnNewButton.setBounds(92, 174, 184, 50);
+		btnNewButton.setBounds(31, 326, 184, 50);
 		frmStudents.getContentPane().add(btnNewButton);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(688, 69, -205, 319);
-		frmStudents.getContentPane().add(textArea);
+		 result = new JTextArea();
+		 result.setFont(new Font("DejaVu Sans Mono", Font.BOLD | Font.ITALIC, 12));
+		 result.setForeground(Color.GREEN);
+		 result.setBackground(Color.BLACK);
+		 result.setEditable(false);
+		result.setBounds(367, 12, 350, 376);
+		frmStudents.getContentPane().add(result);
+		
+		lblNewLabel = new JLabel("student records");
+		lblNewLabel.setForeground(Color.BLUE);
+		lblNewLabel.setFont(new Font("FreeSans", Font.BOLD | Font.ITALIC, 21));
+		lblNewLabel.setIcon(new ImageIcon("/home/franc/icons/Annotation 2021-09-30 100047.png"));
+		lblNewLabel.setBounds(99, 89, 250, 137);
+		frmStudents.getContentPane().add(lblNewLabel);
 		frmStudents.setVisible(true);
+	}
+	public void ShowResults() throws SQLException, InterruptedException {
+		Get_Connection();
+		Statement stm = conn.createStatement();
+		 ResultSet rs =  stm.executeQuery("select * from Student where id = "+Integer.parseInt(getreg.getText()));
+	     while(rs.next()) {
+	    	 result.setText("NAME: "+rs.getString(4)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+
+	    			 "\n"+"PHONE: "+rs.getString(5)+"\n"+"NATIONAL ID: "+rs.getString(6)+
+	    			 "\n"+"GENDER "+rs.getString(7)+"\n"+"CITY: "+rs.getString(8)+"\n"+
+	    			 "PROGRAMME: "+rs.getString(9)+"\n"+"FEE PAID: "+rs.getInt(10)+" "+"\n"+
+	    			 "PARENT/GUARDIAN: "+rs.getString(11)+" \n"+" PARENT/GURDIAN NUMBER: "+rs.getString(12));
+	    	 getreg.setEditable(false);
+	    	 Thread tr = new Thread();
+	    	 tr.sleep(1000);
+	    	 getreg.setEditable(true);
+	     }
 	}
 }
