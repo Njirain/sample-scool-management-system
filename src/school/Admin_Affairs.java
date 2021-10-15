@@ -94,6 +94,11 @@ public class Admin_Affairs extends Admin{
 		frmAdminAffairs.getContentPane().add(btnRemoveAdmin);
 		
 		JButton btnExit = new JButton("EXIT");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frmAdminAffairs.setVisible(false);
+			}
+		});
 		btnExit.setForeground(Color.WHITE);
 		btnExit.setBackground(Color.RED);
 		btnExit.setBounds(419, 293, 155, 61);

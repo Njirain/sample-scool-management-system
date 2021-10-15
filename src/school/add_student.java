@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.JRadioButton;
+import javax.swing.JComboBox;
 
 public class add_student extends Admin{
 
@@ -25,14 +26,16 @@ public class add_student extends Admin{
 	private JTextField sname;
 	private JTextField phone;
 	private JTextField getid;
-	private JTextField city,getfee;
-	private JTextField course;
+	public JTextField city,getfee;
 	private JTextField getparent;
 	private JTextField getnumber;
 	private JButton btnNewButton;
+	JComboBox comboBox;
 	String gender;
 	private JTextField textField;
 	private JTextField regno;
+	float amount;
+	String[]courses = new String[] {"Computer Science","Informatics","Information Science","ICT","Computer forensics"};
 
 	/**
 	 * Launch the application.
@@ -56,6 +59,7 @@ public class add_student extends Admin{
 		initialize();
 	}
 	private void Add_Data() throws SQLException {
+		int id = comboBox.getSelectedIndex();
 		Get_Connection();
 		String query = "insert into Student values(?,?,?,?,?,?,?,?,?,?,?,?)";
 		ps=conn.prepareStatement(query);
@@ -67,11 +71,12 @@ public class add_student extends Admin{
 		ps.setString(6, getid.getText());
 		ps.setString(7, gender);
 		ps.setString(8, city.getText());
-		ps.setString(9, course.getText());
+		ps.setString(9, comboBox.getItemAt(id)+"");
 		ps.setInt(10, Integer.parseInt(getfee.getText()));
 		ps.setString(11, getparent.getText());
 		ps.setString(12, getnumber.getText());
 		ps.execute();
+		
 	}
 	
 
@@ -143,11 +148,6 @@ public class add_student extends Admin{
 		city.setBounds(526, 398, 247, 34);
 		frmAddStudent.getContentPane().add(city);
 		city.setColumns(10);
-		
-		course = new JTextField();
-		course.setBounds(526, 245, 237, 28);
-		frmAddStudent.getContentPane().add(course);
-		course.setColumns(10);
 		
 		JButton addstudent = new JButton("Add");
 		addstudent.addActionListener(new ActionListener() {
@@ -256,5 +256,9 @@ public class add_student extends Admin{
 		regno.setBounds(12, 87, 114, 34);
 		frmAddStudent.getContentPane().add(regno);
 		regno.setColumns(10);
+		
+	  comboBox = new JComboBox(courses);
+		comboBox.setBounds(526, 246, 177, 33);
+		frmAddStudent.getContentPane().add(comboBox);
 	}
 }

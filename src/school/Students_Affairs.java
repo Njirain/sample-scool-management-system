@@ -47,7 +47,7 @@ public class Students_Affairs {
 		JButton btnStudentRecord = new JButton("STUDENT RECORD");
 		btnStudentRecord.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				show_student st = new show_student();
+		
 				
 			}
 		});
@@ -57,12 +57,28 @@ public class Students_Affairs {
 		frmStudentsAffairs.getContentPane().add(btnStudentRecord);
 		
 		JButton btnUpdateRecord = new JButton("UPDATE RECORD");
+		btnUpdateRecord.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frmStudentsAffairs.setVisible(false);
+				Update_student update = new Update_student();
+				update.frmUpdateData.setVisible(true);
+			}
+		});
 		btnUpdateRecord.setForeground(Color.BLUE);
 		btnUpdateRecord.setBackground(Color.GREEN);
 		btnUpdateRecord.setBounds(23, 224, 189, 46);
+		
+		
 		frmStudentsAffairs.getContentPane().add(btnUpdateRecord);
 		
 		JButton btnClearStudent = new JButton("CLEAR STUDENT");
+		btnClearStudent.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frmStudentsAffairs.setVisible(false);
+				clear cl = new clear();
+				cl.frmClearStudent.setVisible(true);
+			}
+		});
 		btnClearStudent.setForeground(Color.BLUE);
 		btnClearStudent.setBackground(Color.GREEN);
 		btnClearStudent.setBounds(23, 328, 189, 46);
@@ -72,8 +88,6 @@ public class Students_Affairs {
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frmStudentsAffairs.setVisible(false);
-				Dash dash = new Dash();
-				dash.dashboard.setVisible(true);
 			}
 		});
 		btnExit.setForeground(Color.WHITE);
