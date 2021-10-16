@@ -38,6 +38,7 @@ public class clear extends Admin{
 	 */
 	private void initialize() {
 		frmClearStudent = new JFrame();
+		frmClearStudent.setResizable(false);
 		frmClearStudent.getContentPane().setBackground(Color.YELLOW);
 		frmClearStudent.setTitle("CLEAR STUDENT");
 		frmClearStudent.setBounds(100, 100, 745, 451);
@@ -59,21 +60,29 @@ public class clear extends Admin{
 		getreg.setBounds(346, 81, 362, 44);
 		getreg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+			if(getreg.getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "please fill in a student's reg no!!","Blank",JOptionPane.ERROR_MESSAGE);
+			}
+			else {
 				try {
 					Get_Connection();
 					Statement stm = conn.createStatement();
 					 ResultSet rs =  stm.executeQuery("select * from Student where id = "+Integer.parseInt(getreg.getText()));
-					while(rs.next()) {
+					if(rs.next()) {
 						 textArea.setText("NAME: "+rs.getString(4)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+
 				    			 "\n"+"PHONE: "+rs.getString(5)+"\n"+"NATIONAL ID: "+rs.getString(6)+
 				    			 "\n"+"GENDER "+rs.getString(7)+"\n"+"CITY: "+rs.getString(8)+"\n"+
 				    			 "PROGRAMME: "+rs.getString(9)+"\n"+"FEE PAID: "+rs.getInt(10)+" "+"\n"+
 				    			 "PARENT/GUARDIAN: "+rs.getString(11)+" \n"+" PARENT/GURDIAN NUMBER: "+rs.getString(12));
 					}
+					else {
+						JOptionPane.showMessageDialog(null, "Registration Number not in the Sysytem");
+					}
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+			}
 			}
 		});
 		frmClearStudent.getContentPane().add(getreg);

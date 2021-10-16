@@ -85,6 +85,7 @@ public class add_student extends Admin{
 	 */
 	private void initialize() {
 		frmAddStudent = new JFrame();
+		frmAddStudent.setResizable(false);
 		frmAddStudent.getContentPane().setBackground(Color.ORANGE);
 		frmAddStudent.setTitle("ADD STUDENT");
 		frmAddStudent.setBounds(100, 100, 802, 466);
@@ -209,12 +210,12 @@ public class add_student extends Admin{
 		JLabel lblAdmission = new JLabel("ADMISSION OF NEW STUDENT");
 		lblAdmission.setForeground(Color.BLUE);
 		lblAdmission.setFont(new Font("MathJax_Typewriter", Font.BOLD | Font.ITALIC, 24));
-		lblAdmission.setBounds(12, 19, 349, 36);
+		lblAdmission.setBounds(12, 7, 349, 21);
 		frmAddStudent.getContentPane().add(lblAdmission);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("/home/franc/icons/index.png"));
-		lblNewLabel.setBounds(197, 67, 203, 250);
+		lblNewLabel.setIcon(new ImageIcon("/home/franc/eclipse-workspace/School Management/icons/graduate4.png"));
+		lblNewLabel.setBounds(150, 29, 263, 316);
 		frmAddStudent.getContentPane().add(lblNewLabel);
 		
 		JRadioButton rdbtnMale = new JRadioButton("male");

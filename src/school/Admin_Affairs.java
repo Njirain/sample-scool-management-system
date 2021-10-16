@@ -29,6 +29,7 @@ public class Admin_Affairs extends Admin{
 	 */
 	private void initialize() {
 		frmAdminAffairs = new JFrame();
+		frmAdminAffairs.setResizable(false);
 		frmAdminAffairs.getContentPane().setBackground(Color.CYAN);
 		frmAdminAffairs.setTitle("ADMIN AFFAIRS");
 		frmAdminAffairs.setBounds(100, 100, 741, 421);
@@ -108,7 +109,7 @@ public class Admin_Affairs extends Admin{
 		lblNewLabel.setFont(new Font("FreeMono", Font.BOLD | Font.ITALIC, 15));
 		lblNewLabel.setBackground(Color.BLACK);
 		lblNewLabel.setForeground(Color.BLUE);
-		lblNewLabel.setIcon(new ImageIcon("/home/franc/icons/Annotation 2021-09-30 095924.png"));
+		lblNewLabel.setIcon(new ImageIcon("/home/franc/eclipse-workspace/School Management/icons/staff1.png"));
 		lblNewLabel.setBounds(321, 12, 295, 250);
 		frmAdminAffairs.getContentPane().add(lblNewLabel);
 		frmAdminAffairs.setVisible(true);

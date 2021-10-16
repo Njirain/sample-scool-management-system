@@ -26,6 +26,7 @@ public class Students_Affairs {
 	 */
 	private void initialize() {
 		frmStudentsAffairs = new JFrame();
+		frmStudentsAffairs.setResizable(false);
 		frmStudentsAffairs.getContentPane().setBackground(Color.DARK_GRAY);
 		frmStudentsAffairs.setTitle("Students' Affairs");
 		frmStudentsAffairs.setBounds(100, 100, 624, 455);
@@ -96,7 +97,7 @@ public class Students_Affairs {
 		frmStudentsAffairs.getContentPane().add(btnExit);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("/home/franc/icons/index2.png"));
+		lblNewLabel.setIcon(new ImageIcon("/home/franc/eclipse-workspace/School Management/icons/index2.png"));
 		lblNewLabel.setBounds(289, 90, 303, 233);
 		frmStudentsAffairs.getContentPane().add(lblNewLabel);
 	}

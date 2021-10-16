@@ -53,6 +53,7 @@ public class Show_student extends Admin{
 	 */
 	private void initialize() {
 		frmStudentRecord = new JFrame();
+		frmStudentRecord.setResizable(false);
 		frmStudentRecord.getContentPane().setBackground(SystemColor.desktop);
 		frmStudentRecord.setBackground(Color.GREEN);
 		frmStudentRecord.setTitle("STUDENT RECORD");
@@ -61,7 +62,7 @@ public class Show_student extends Admin{
 		frmStudentRecord.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("/home/franc/icons/graduate4.png"));
+		lblNewLabel.setIcon(new ImageIcon("/home/franc/eclipse-workspace/School Management/icons/graduate4.png"));
 		lblNewLabel.setBounds(22, 39, 286, 376);
 		frmStudentRecord.getContentPane().add(lblNewLabel);
 		
@@ -74,7 +75,7 @@ public class Show_student extends Admin{
 		getregno.setBounds(326, 39, 167, 43);
 		getregno.addActionListener((args)->{
 			try {
-				show();
+				Show();
 				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -107,7 +108,7 @@ public class Show_student extends Admin{
 		results.setBounds(407, 123, 448, 292);
 		frmStudentRecord.getContentPane().add(results);
 	}
-	private void show() throws SQLException {
+	private void Show() throws SQLException {
 		Get_Connection();
 		Statement stm = conn.createStatement();
 	    rs = stm.executeQuery("select * from Student where id = "+Integer.parseInt(getregno.getText()));

@@ -38,6 +38,7 @@ public class Add_Staff extends Admin {
 	 */
 	private void initialize() {
 		frmAddStaff = new JFrame();
+		frmAddStaff.setResizable(false);
 		frmAddStaff.getContentPane().setBackground(new Color(0, 255, 255));
 		frmAddStaff.setTitle("STAFF STUFF");
 		frmAddStaff.setBounds(100, 100, 744, 464);
@@ -170,7 +171,7 @@ public class Add_Staff extends Admin {
 		JLabel lblNewLabel = new JLabel("ADD STAFF");
 		lblNewLabel.setForeground(new Color(0, 0, 255));
 		lblNewLabel.setFont(new Font("Z003", Font.BOLD | Font.ITALIC, 27));
-		lblNewLabel.setIcon(new ImageIcon("/home/franc/icons/admins.jpeg"));
+		lblNewLabel.setIcon(new ImageIcon("/home/franc/eclipse-workspace/School Management/icons/admins.jpeg"));
 		lblNewLabel.setBounds(347, 120, 385, 239);
 		frmAddStaff.getContentPane().add(lblNewLabel);
 		

@@ -32,6 +32,7 @@ public class Update_student extends Admin {
 	 */
 	private void initialize() {
 		frmUpdateData = new JFrame();
+		frmUpdateData.setResizable(false);
 		frmUpdateData.getContentPane().setBackground(Color.DARK_GRAY);
 		frmUpdateData.getContentPane().setForeground(Color.WHITE);
 		frmUpdateData.setTitle("UPDATE DATA");
@@ -40,7 +41,7 @@ public class Update_student extends Admin {
 		frmUpdateData.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("/home/franc/icons/index.png"));
+		lblNewLabel.setIcon(new ImageIcon("/home/franc/eclipse-workspace/School Management/icons/index.png"));
 		lblNewLabel.setBounds(12, 84, 228, 321);
 		frmUpdateData.getContentPane().add(lblNewLabel);
 		

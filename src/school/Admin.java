@@ -31,24 +31,6 @@ public class Admin{
 	 public String name;
 	 private String adminname;
 
-
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Admin window = new Admin();
-					show();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	/**
 	 * Create the application.
 	 */
@@ -83,6 +65,12 @@ public class Admin{
 		ps.setString(1, name);
 		ps.setString(2, pass);
 		ResultSet rs = ps.executeQuery();
+      if(name.isEmpty()||pass.isEmpty()) {
+    	 JOptionPane.showMessageDialog(null, "please fill in the fields!!","Error",JOptionPane.ERROR_MESSAGE); 
+    	 frameAdmin.setVisible(true);
+    	 adminName.requestFocus();
+      }
+      else {
 			if(rs.next()) {
 			      String welcome = adminName.getText();
 		             Dash dash= new Dash();
@@ -97,6 +85,7 @@ public class Admin{
 				show();
 				
 			}
+      }
 	}
 	
 
@@ -105,6 +94,7 @@ public class Admin{
 	 */
 	private void initialize() {
 		frameAdmin = new JFrame("ADMIN PANEL");
+		frameAdmin.setResizable(false);
 		frameAdmin.getContentPane().setBackground(Color.WHITE);
 		frameAdmin.setForeground(Color.GREEN);
 		frameAdmin.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 22));
@@ -194,7 +184,7 @@ public class Admin{
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBackground(Color.CYAN);
-		lblNewLabel.setIcon(new ImageIcon("/home/franc/icons/login.png"));
+		lblNewLabel.setIcon(new ImageIcon("/home/franc/eclipse-workspace/School Management/icons/login.png"));
 		lblNewLabel.setBounds(236, 0, 202, 130);
 		frameAdmin.getContentPane().add(lblNewLabel);
 	}
@@ -204,7 +194,7 @@ public class Admin{
 	}
 
 
-	private static void show() {
+	public static void show() {
 		try {
 			try {
 				frameAdmin.setVisible(true);
