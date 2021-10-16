@@ -38,6 +38,7 @@ public class Add_admin extends Admin {
 	 */
 	private void initialize() {
 		frmAddAdmin = new JFrame();
+		frmAddAdmin.setResizable(false);
 		frmAddAdmin.setTitle("ADD ADMIN");
 		frmAddAdmin.setBounds(100, 100, 570, 374);
 		frmAddAdmin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -103,7 +104,7 @@ public class Add_admin extends Admin {
 		frmAddAdmin.getContentPane().add(pass);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("/home/franc/icons/Annotation 2021-09-30 095924.png"));
+		lblNewLabel.setIcon(new ImageIcon("/home/franc/eclipse-workspace/School Management/icons/addadmin.png"));
 		lblNewLabel.setBounds(353, 31, 172, 214);
 		frmAddAdmin.getContentPane().add(lblNewLabel);
 	}

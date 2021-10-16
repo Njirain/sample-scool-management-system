@@ -43,6 +43,7 @@ public class Fee extends Admin{
 	 */
 	private void initialize() {
 		frmFeeOption = new JFrame();
+		frmFeeOption.setResizable(false);
 		frmFeeOption.getContentPane().setBackground(new Color(47, 79, 79));
 		frmFeeOption.setTitle("FEE OPTION");
 		frmFeeOption.setBounds(100, 100, 670, 424);

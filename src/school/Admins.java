@@ -40,6 +40,7 @@ public class Admins {
 	 */
 	private void initialize() {
 		frmAdmins = new JFrame();
+		frmAdmins.setResizable(false);
 		frmAdmins.getContentPane().setBackground(Color.CYAN);
 		frmAdmins.setTitle("ADMINS");
 		frmAdmins.setBounds(100, 100, 594, 452);

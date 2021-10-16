@@ -27,6 +27,7 @@ public class Staff_Affairs {
 	 */
 	private void initialize() {
 		frmStaffsOption = new JFrame();
+		frmStaffsOption.setResizable(false);
 		frmStaffsOption.getContentPane().setBackground(UIManager.getColor("controlDkShadow"));
 		frmStaffsOption.setTitle("Staffs Option");
 		frmStaffsOption.setBounds(100, 100, 736, 460);
@@ -36,7 +37,7 @@ public class Staff_Affairs {
 		JLabel lblNewLabel = new JLabel("STAFF OPTION");
 		lblNewLabel.setFont(new Font("FreeSerif", Font.BOLD | Font.ITALIC, 23));
 		lblNewLabel.setForeground(Color.BLUE);
-		lblNewLabel.setIcon(new ImageIcon("/home/franc/icons/employees.jpeg"));
+		lblNewLabel.setIcon(new ImageIcon("/home/franc/eclipse-workspace/School Management/icons/employees.jpeg"));
 		lblNewLabel.setBounds(313, 164, 411, 262);
 		frmStaffsOption.getContentPane().add(lblNewLabel);
 		

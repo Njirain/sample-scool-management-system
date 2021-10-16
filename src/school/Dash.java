@@ -31,6 +31,7 @@ public class Dash extends Admin {
 
 	private void initialize() {
 		dashboard = new JFrame("DASHBOARD");
+		dashboard.setResizable(false);
 		dashboard.getContentPane().setBackground(Color.MAGENTA);
 		dashboard.getContentPane().setForeground(Color.WHITE);
 		dashboard.setFont(new Font("MathJax_Caligraphic", Font.BOLD | Font.ITALIC, 24));
@@ -40,8 +41,8 @@ public class Dash extends Admin {
 		dashboard.getContentPane().setLayout(null);
 		
 		lblNewLabel = new JLabel("");
-		lblNewLabel.setForeground(Color.BLUE);
-		lblNewLabel.setFont(new Font("DejaVu Sans Mono", Font.BOLD | Font.ITALIC, 17));
+		lblNewLabel.setForeground(Color.BLACK);
+		lblNewLabel.setFont(new Font("URW Bookman L", Font.BOLD | Font.ITALIC, 18));
 		lblNewLabel.setBounds(263, 12, 216, 44);
 		dashboard.getContentPane().add(lblNewLabel);
 		
@@ -52,7 +53,7 @@ public class Dash extends Admin {
 		});
 		btnLogout.setForeground(Color.WHITE);
 		btnLogout.setBackground(Color.RED);
-		btnLogout.setBounds(505, 12, 174, 62);
+		btnLogout.setBounds(24, 384, 174, 62);
 		dashboard.getContentPane().add(btnLogout);
 		
 		JButton btnStudentssOption = new JButton("STUDENTS'S OPTION");
@@ -63,7 +64,7 @@ public class Dash extends Admin {
 				sa.frmStudentsAffairs.setVisible(true);
 			}
 		});
-		btnStudentssOption.setBounds(12, 7, 229, 74);
+		btnStudentssOption.setBounds(12, 7, 186, 74);
 		dashboard.getContentPane().add(btnStudentssOption);
 		
 		JButton btnAdminsOption = new JButton("ADMINS OPTION");
@@ -73,7 +74,7 @@ public class Dash extends Admin {
 			}
 		});
 		btnAdminsOption.setBackground(Color.GREEN);
-		btnAdminsOption.setBounds(12, 94, 229, 74);
+		btnAdminsOption.setBounds(12, 94, 186, 74);
 		dashboard.getContentPane().add(btnAdminsOption);
 		
 		JButton btnStaffsOption = new JButton("STAFFS OPTION");
@@ -85,7 +86,7 @@ public class Dash extends Admin {
 			}
 		});
 		btnStaffsOption.setBackground(Color.GREEN);
-		btnStaffsOption.setBounds(12, 180, 229, 74);
+		btnStaffsOption.setBounds(12, 180, 181, 74);
 		dashboard.getContentPane().add(btnStaffsOption);
 		
 		JButton btnfee = new JButton("FEE OPTION");
@@ -94,19 +95,12 @@ public class Dash extends Admin {
 			Fee fee = new Fee();
 			fee.frmFeeOption.setVisible(true);
 		});
-		btnfee.setBounds(12, 286, 229, 74);
+		btnfee.setBounds(12, 286, 186, 74);
 		dashboard.getContentPane().add(btnfee);
 		
-		JLabel lblNewLabel_1 = new JLabel("DASHBOARD");
-		lblNewLabel_1.setForeground(new Color(0, 0, 255));
-		lblNewLabel_1.setFont(new Font("Noto Sans Mono", Font.BOLD | Font.ITALIC, 20));
-		lblNewLabel_1.setIcon(new ImageIcon("/home/franc/Downloads/admin1.jpeg"));
-		lblNewLabel_1.setBounds(281, 232, 222, 225);
-		dashboard.getContentPane().add(lblNewLabel_1);
-		
 		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setIcon(new ImageIcon("/home/franc/icons/index.png"));
-		lblNewLabel_2.setBounds(510, 81, 169, 210);
+		lblNewLabel_2.setIcon(new ImageIcon("/home/franc/eclipse-workspace/School Management/icons/scool3.jpg"));
+		lblNewLabel_2.setBounds(209, 0, 512, 487);
 		dashboard.getContentPane().add(lblNewLabel_2);
 	}
 }
